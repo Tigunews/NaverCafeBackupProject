@@ -769,7 +769,7 @@ while tno <=end:
     try:
         alert = driver.switch_to.alert
         alert.accept()
-        print("%d번 게시글은 존재하지 않음" % tno)
+        print("%d번 게시글은 존재하지 않음!!" % tno)
         tno = tno +1
     except:
         driver.switch_to.frame('cafe_main')
