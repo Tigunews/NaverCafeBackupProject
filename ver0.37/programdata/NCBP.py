@@ -686,7 +686,8 @@ Public License instead of this License.  But first, please read
 """
 
 
-
+import sys
+print(sys.version)
 print('크롤링 프로그램 시작중...')
 print('사용중 문제나 어려움이 있을시, 스크린샷 첨부해서 admin@nonaver.com으로 메일 주시면 도와드리겠습니다.')
 print('NCBP 0.37버젼입니다. 2021년 05월 20일 배포.')
@@ -769,6 +770,7 @@ while tno <=end:
     try:
         alert = driver.switch_to.alert
         alert.accept()
+
         print("%d번 게시글은 존재하지 않음!!" % tno)
         tno = tno +1
     except:
@@ -782,6 +784,13 @@ while tno <=end:
         f.close()
         print("%d번 게시글 저장완료." % int(tno))
         os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/%d.pdf' % (username,tno,username,tno))
+
+        # Get Title Test
+        from bs4 import BeautifulSoup
+        
+        bsObject = BeautifulSoup(cafedir, "html.parser")
+        print(bsObject.head.title)
+
         print("%d번 게시글 변환요청 완료." % int(tno))
         tno = tno +1
 

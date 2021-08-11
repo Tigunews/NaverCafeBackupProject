@@ -4,6 +4,8 @@ ECHO 프로그램 로딩중...
 call "C:\Users\%username%\Miniconda3\\Scripts\activate.bat"
 pip install selenium
 pip install jupyter
+pip install requests
+pip3.7 install bs4
 ECHO 설치완료. 오류시 이 메시지를 캡처해서 보내주세요. admin@NoNaver.com
 timeout 3
 exit
