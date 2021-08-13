@@ -752,7 +752,6 @@ start = input('저장을 시작할 게시글 번호를 입력하고 엔터키 �
 end = input('저장을 끝낼 게시글 번호를 입력하고 엔터키 누르세요: ')
 start=int(start)
 end=int(end)
-board = input('게시판 이름을 입력하고 엔터키 누르세요: ')
 print('카페 설정이 완료되었습니다.')
 
 
@@ -784,7 +783,7 @@ while tno <=end:
         soup = BeautifulSoup(html, 'html.parser')
         title = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > a')
 
-        if title.text.find(board) > 0 :
+        if (title.text.find("TOP") >0 and title.text.find("셀프테스트") >0):
                 name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
                 name = name.text.replace('<h3 class="title_text">','')
                 name = name.replace('\n','')
@@ -792,7 +791,57 @@ while tno <=end:
                 f.write(html)
                 f.close()
                 print("%d번 게시글 저장완료." % int(tno))
-                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/%s.pdf' % (username,tno,username,name))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/TOP셀프테스트/%s.pdf' % (username,tno,username,name))
+                print("%d번 게시글 변환요청 완료." % int(tno))
+        elif (title.text.find("단기합격") >0 and title.text.find("셀프테스트") >0):
+                name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
+                name = name.text.replace('<h3 class="title_text">','')
+                name = name.replace('\n','')
+                name = name.replace(' ','')
+                f.write(html)
+                f.close()
+                print("%d번 게시글 저장완료." % int(tno))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/SPP셀프테스트/%s.pdf' % (username,tno,username,name))
+                print("%d번 게시글 변환요청 완료." % int(tno))
+        elif (title.text.find("TOP") >0 and title.text.find("오답노트") >0):
+                name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
+                name = name.text.replace('<h3 class="title_text">','')
+                name = name.replace('\n','')
+                name = name.replace(' ','')
+                f.write(html)
+                f.close()
+                print("%d번 게시글 저장완료." % int(tno))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/TOP오답노트/%s.pdf' % (username,tno,username,name))
+                print("%d번 게시글 변환요청 완료." % int(tno))
+        elif (title.text.find("단기합격") >0 and title.text.find("오답노트") >0):
+                name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
+                name = name.text.replace('<h3 class="title_text">','')
+                name = name.replace('\n','')
+                name = name.replace(' ','')
+                f.write(html)
+                f.close()
+                print("%d번 게시글 저장완료." % int(tno))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/SPP오답노트/%s.pdf' % (username,tno,username,name))
+                print("%d번 게시글 변환요청 완료." % int(tno))
+        elif (title.text.find("TOP") >0 and title.text.find("핵심답안과제") >0):
+                name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
+                name = name.text.replace('<h3 class="title_text">','')
+                name = name.replace('\n','')
+                name = name.replace(' ','')
+                f.write(html)
+                f.close()
+                print("%d번 게시글 저장완료." % int(tno))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/TOP핵심답안과제/%s.pdf' % (username,tno,username,name))
+                print("%d번 게시글 변환요청 완료." % int(tno))
+        elif (title.text.find("단기합격") >0 and title.text.find("핵심답안과제") >0):
+                name = soup.select_one('#app > div > div > div.ArticleContentBox > div.article_header > div.ArticleTitle > div > h3')
+                name = name.text.replace('<h3 class="title_text">','')
+                name = name.replace('\n','')
+                name = name.replace(' ','')
+                f.write(html)
+                f.close()
+                print("%d번 게시글 저장완료." % int(tno))
+                os.system('start cmd /c start /d "C:/Program Files/wkhtmltopdf/bin/" /b wkhtmltopdf.exe --encoding UTF-8 C:/Users/%s/NCBP/CAFE/%d.html C:/Users/%s/NCBP/CAFE/SPP핵심답안과제/%s.pdf' % (username,tno,username,name))
                 print("%d번 게시글 변환요청 완료." % int(tno))
 
         tno = tno +1
