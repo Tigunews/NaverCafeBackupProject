@@ -709,6 +709,28 @@ except:
 	print('Selenium 설치여부와 위치를 확인해주세요')
 	
 
+# Chrome Driver Update
+def chrome_driver_update(self):
+    print("chrome_driver_update..")
+    update = True
+    # pip install check-chromedriver
+    package_name = 'chromedriver-autoinstaller'
+    pip_show_list = os.popen(f"pip show {package_name}").read().strip().split('\n')
+    for pip_show_str in pip_show_list:
+        if package_name not in pip_show_str:
+            continue
+        else:
+            update = False
+            break
+    if update:
+        os.system(f'pip install {package_name}')
+        print(f"성공적으로 {package_name} 패키지를 설치 했습니다")
+
+    import chromedriver_autoinstaller
+    path = chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+    # and if it doesn't exist, download it automatically,
+    # then add chromedriver to path
+
 #chromedriver로딩 시도. 먼저 87로 로딩 후, 88,89까지.
 try:
 	driver = webdriver.Chrome(executable_path="C:/Users/%s/NCBP/programdata/chromedriver.exe" % username)
