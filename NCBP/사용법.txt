@@ -1,0 +1,7 @@
+1. Chromedriver 업데이트 후 치환
+
+2. whtmltopdf 설치 (안되면 whtmltopdf.exe를 찾아서 NCBP 폴더 내에 가져오기)
+
+3. Pycharm으로 환경 맞추기
+
+4. cmd / NCBP 경로로이동 / python NCBP.py 실행
